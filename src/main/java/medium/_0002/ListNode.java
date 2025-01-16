@@ -1,4 +1,4 @@
-package easy._0002;
+package medium._0002;
 
 public class ListNode {
     int value;
