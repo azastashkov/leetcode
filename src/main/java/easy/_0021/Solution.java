@@ -10,12 +10,37 @@ public class Solution {
         if (list2 == null) {
             return list1;
         }
+
+        ListNode r = new ListNode();
         if (list1.val <= list2.val) {
-            list1.next = mergeTwoLists(list1.next, list2);
-            return list1;
+            r.val = list1.val;
+            list1 = list1.next;
         } else {
-            list2.next = mergeTwoLists(list1, list2.next);
-            return list2;
+            r.val = list2.val;
+            list2 = list2.next;
         }
+
+        ListNode h = r;
+
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                r.next = new ListNode(list1.val);
+                list1 = list1.next;
+            } else {
+                r.next = new ListNode(list2.val);
+                list2 = list2.next;
+            }
+            r = r.next;
+        }
+
+        if (list1 != null) {
+            r.next = list1;
+        }
+
+        if (list2 != null) {
+            r.next = list2;
+        }
+
+        return h;
     }
 }
