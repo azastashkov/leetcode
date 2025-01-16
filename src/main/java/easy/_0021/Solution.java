@@ -24,10 +24,10 @@ public class Solution {
 
         while (list1 != null && list2 != null) {
             if (list1.val <= list2.val) {
-                r.next = new ListNode(list1.val);
+                r.next = list1;
                 list1 = list1.next;
             } else {
-                r.next = new ListNode(list2.val);
+                r.next = list2;
                 list2 = list2.next;
             }
             r = r.next;
