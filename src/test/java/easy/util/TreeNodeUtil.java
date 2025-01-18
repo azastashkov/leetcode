@@ -4,6 +4,7 @@ import util.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.function.Consumer;
 
 public class TreeNodeUtil {
     public static TreeNode fromArray(Integer[] values) {
@@ -37,5 +38,15 @@ public class TreeNodeUtil {
         }
 
         return root;
+    }
+
+    public static void inorder(TreeNode root, Consumer<Integer> consumer) {
+        if (root == null) {
+            return;
+        }
+
+        inorder(root.left, consumer);
+        consumer.accept(root.val);
+        inorder(root.right, consumer);
     }
 }
