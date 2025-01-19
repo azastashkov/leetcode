@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 public class TreeNodeUtil {
     public static TreeNode fromArray(Integer[] values) {
         if (values == null || values.length == 0 || values[0] == null) {
-            return new TreeNode();
+            return null;
         }
 
         TreeNode root = new TreeNode(values[0]);
