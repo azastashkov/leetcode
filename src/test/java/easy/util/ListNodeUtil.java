@@ -38,4 +38,17 @@ public class ListNodeUtil {
         }
         return array;
     }
+
+    public static ListNode tail(ListNode head) {
+        ListNode current = head;
+        if (current == null) {
+            return null;
+        }
+
+        while (current.next != null) {
+            current = current.next;
+        }
+
+        return current;
+    }
 }
