@@ -20,7 +20,7 @@ public class Solution {
             right.put(v, i);
         }
 
-        int ans = Integer.MAX_VALUE;
+        int ans = nums.length;
         for (int v : cnt.keySet()) {
             if (cnt.get(v) == degree) {
                 int currentLength = right.get(v) - left.get(v) + 1;
