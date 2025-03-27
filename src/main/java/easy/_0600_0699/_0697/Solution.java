@@ -21,11 +21,11 @@ public class Solution {
         }
 
         int ans = Integer.MAX_VALUE;
-        for (int v : nums) {
+        for (int v : cnt.keySet()) {
             if (cnt.get(v) == degree) {
-                int t = right.get(v) - left.get(v) + 1;
-                if (ans > t) {
-                    ans = t;
+                int currentLength = right.get(v) - left.get(v) + 1;
+                if (currentLength < ans) {
+                    ans = currentLength;
                 }
             }
         }
