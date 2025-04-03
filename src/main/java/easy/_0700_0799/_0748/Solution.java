@@ -11,7 +11,7 @@ public class Solution {
         for (int i = 0; i < l; i++) {
             char c = licensePlate.charAt(i);
             if (Character.isLetter(c)) {
-                plateChars.merge(Character.toLowerCase(c), 1, (prev, one) -> prev + one);
+                plateChars.merge(Character.toLowerCase(c), 1, Integer::sum);
             }
         }
 
