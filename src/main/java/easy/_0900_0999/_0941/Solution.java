@@ -9,12 +9,12 @@ public class Solution {
 
         int i = 0;
         while (i + 1 < l - 1 && arr[i] < arr[i + 1]) {
-            ++i;
+            i++;
         }
 
         int j = l - 1;
         while (j - 1 > 0 && arr[j - 1] > arr[j]) {
-            --j;
+            j--;
         }
 
         return i == j;
