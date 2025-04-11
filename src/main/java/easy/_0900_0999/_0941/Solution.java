@@ -7,24 +7,16 @@ public class Solution {
             return false;
         }
 
-        if (arr[0] >= arr[1]) {
-            return false;
+        int i = 0;
+        while (i + 1 < l - 1 && arr[i] < arr[i + 1]) {
+            ++i;
         }
 
-        boolean peak = false;
-        for (int i = 1; i < l; i++) {
-            if (!peak && arr[i - 1] < arr[i]) {
-                continue;
-            } else if (!peak && arr[i - 1] > arr[i]) {
-                peak = true;
-                continue;
-            }
-
-            if (arr[i - 1] <= arr[i]) {
-                return false;
-            }
+        int j = l - 1;
+        while (j - 1 > 0 && arr[j - 1] > arr[j]) {
+            --j;
         }
 
-        return peak;
+        return i == j;
     }
 }
