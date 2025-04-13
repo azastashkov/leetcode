@@ -25,7 +25,7 @@ public class Solution {
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < m; i++) {
-            list.addAll(Collections.nCopies(count[i], Character.toString((char) ('a' + i))));
+            list.addAll(Collections.nCopies(count[i], Character.toString('a' + i)));
         }
 
         return list;
