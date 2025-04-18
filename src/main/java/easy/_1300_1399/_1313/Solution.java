@@ -1,26 +1,20 @@
 package easy._1300_1399._1313;
 
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
     public int[] decompressRLElist(int[] nums) {
-        List<Integer> list = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
         int l = nums.length;
         for (int i = 0; i < l; i += 2) {
             int freq = nums[i];
             int val = nums[i + 1];
-            list.addAll(Collections.nCopies(freq, val));
+            for (int j = 0; j < freq; j++) {
+                list.add(val);
+            }
         }
 
-        int k = list.size();
-        int[] arr = new int[k];
-        int j = 0;
-        for (Integer i : list) {
-            arr[j++] = i;
-        }
-
-        return arr;
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }
