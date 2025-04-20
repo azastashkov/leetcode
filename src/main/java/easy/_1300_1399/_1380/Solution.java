@@ -22,7 +22,7 @@ public class Solution {
         List<Integer> res = new LinkedList<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (rows[i] == cols[j]) {
+                if (matrix[i][j] == rows[i] && matrix[i][j] == cols[j]) {
                     res.add(rows[i]);
                 }
             }
