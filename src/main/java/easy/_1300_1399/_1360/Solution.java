@@ -18,7 +18,7 @@ public class Solution {
 
     private int calcDays(int year, int month, int day, int[] daysInMonths) {
         int days = 0;
-        for (int y = 2019; y < year; y++) {
+        for (int y = 1971; y < year; y++) {
             days += 365;
             if (java.time.Year.of(y).isLeap()) {
                 days++;
