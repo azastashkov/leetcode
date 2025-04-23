@@ -7,10 +7,6 @@ public class Solution {
         }
 
         int l = s.length();
-        if (l <= 1) {
-            return s;
-        }
-
         char[] chars = s.toCharArray();
 
         for (int i = 0; i < l; i++) {
