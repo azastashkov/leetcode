@@ -13,6 +13,6 @@ public class SolutionTest {
 
         assertEquals(-1, solution.maximumDifference(new int[] { 9, 4, 3, 2 }));
 
-        assertEquals(9, solution.maximumDifference(new int[] { 1, 5, 2,10 }));
+        assertEquals(9, solution.maximumDifference(new int[] { 1, 5, 2, 10 }));
     }
 }
