@@ -13,14 +13,14 @@ public class Solution {
         inc(count, nums2);
         inc(count, nums3);
 
-        Set<Integer> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
         for (int i = 1; i <= 100; i++) {
             if (count[i] >= 2) {
-                set.add(i);
+                list.add(i);
             }
         }
 
-        return new ArrayList<>(set);
+        return list;
     }
 
     private void inc(int[] count, int[] arr) {
