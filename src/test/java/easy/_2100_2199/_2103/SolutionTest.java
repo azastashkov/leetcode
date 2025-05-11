@@ -14,5 +14,7 @@ public class SolutionTest {
         assertEquals(1, solution.countPoints("B0R0G0R9R0B0G0"));
 
         assertEquals(0, solution.countPoints("G4"));
+
+        assertEquals(1, solution.countPoints("B9R9G0R4G6R8R2R9G9"));
     }
 }
