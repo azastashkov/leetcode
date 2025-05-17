@@ -12,6 +12,9 @@ public class Solution {
 
         Arrays.sort(nums);
 
-        return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
+        int firstMin = nums[0];
+        int secondMin = nums[1];
+
+        return 10 * firstMin + nums[2] + 10 * secondMin + nums[3];
     }
 }
