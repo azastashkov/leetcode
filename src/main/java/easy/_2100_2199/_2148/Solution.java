@@ -1,21 +1,20 @@
 package easy._2100_2199._2148;
 
-import java.util.TreeMap;
-
 public class Solution {
     public int countElements(int[] nums) {
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
         for (int n : nums) {
-            treeMap.merge(n, 1, Integer::sum);
+            min = Math.min(min, n);
+            max = Math.max(max, n);
         }
 
-        int i = 0, size = treeMap.size(), total = 0;
-        var entries = treeMap.entrySet();
-        for (var entry : entries) {
-            if (i > 0 && i < size - 1) {
-                total += entry.getValue();
+        int total = 0;
+        for (int n : nums) {
+            if (n > min && n < max) {
+                total++;
             }
-            i++;
         }
 
         return total;
