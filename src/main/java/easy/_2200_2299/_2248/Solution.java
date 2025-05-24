@@ -1,25 +1,23 @@
 package easy._2200_2299._2248;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 
 public class Solution {
     public List<Integer> intersection(int[][] nums) {
-        int l = nums.length;
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        for (int[] arr : nums) {
+        int[] count = new int[1001];
+        for (var arr : nums) {
             for (int n : arr) {
-                treeMap.merge(n, 1, Integer::sum);
+                count[n]++;
             }
         }
 
-        List<Integer> list = new LinkedList<>();
-        treeMap.forEach((k, v) -> {
-            if (v == l) {
-                list.add(k);
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 1001; i++) {
+            if (count[i] == nums.length) {
+                list.add(i);
             }
-        });
+        }
 
         return list;
     }
