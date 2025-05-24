@@ -12,5 +12,7 @@ public class SolutionTest {
         assertEquals("135", solution.digitSum("11111222223", 3));
 
         assertEquals("000", solution.digitSum("00000000", 3));
+
+        assertEquals("37", solution.digitSum("1234", 2));
     }
 }

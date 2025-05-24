@@ -7,7 +7,7 @@ public class Solution {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < l; i += k) {
                 int sum = 0;
-                int end = Math.min(i + 3, l);
+                int end = Math.min(i + k, l);
                 for (int j = i; j < end; j++) {
                     sum += (s.charAt(j) - '0');
                 }
