@@ -1,48 +1,37 @@
 package easy._2200_2299._2273;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Solution {
     public List<String> removeAnagrams(String[] words) {
-        int l = words.length;
-        if (l <= 1) {
-            return Arrays.asList(words);
-        }
-
-        for (int i = 1; i < l; i++) {
-            if (isAnagram(words, i - 1, i)) {
-                words[i] = words[i - 1];
-                words[i - 1] = null;
+        List<String> ans = new ArrayList<>();
+        ans.add(words[0]);
+        for (int i = 1; i < words.length; ++i) {
+            if (check(words[i - 1], words[i])) {
+                ans.add(words[i]);
             }
         }
 
-        return Arrays.stream(words).filter(Objects::nonNull).collect(Collectors.toList());
+        return ans;
     }
 
-    private boolean isAnagram(String[] words, int i, int j) {
+    private boolean check(String s, String t) {
+        if (s.length() != t.length()) {
+            return true;
+        }
+
         int[] cnt = new int[26];
-        String wi = words[i];
-        int li = wi.length();
-        for (int k = 0; k < li; k++) {
-            cnt[wi.charAt(k) - 'a']++;
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
         }
 
-        String wj = words[j];
-        int lj = wj.length();
-        for (int k = 0; k < lj; k++) {
-            char cj = wj.charAt(k);
-            cnt[cj - 'a']--;
-        }
-
-        for (int k = 0; k < 26; k++) {
-            if (cnt[k] != 0) {
-                return false;
+        for (int i = 0; i < t.length(); ++i) {
+            if (--cnt[t.charAt(i) - 'a'] < 0) {
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 }
