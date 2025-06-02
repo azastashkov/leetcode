@@ -6,9 +6,11 @@ public class Solution {
         int l = nums.length;
         for (int i = 0; i < l; i++) {
             for (int j = i + 1; j < l; j++) {
-                for (int k = j + 1; k < l; k++) {
-                    if (nums[j] - nums[i] == diff && nums[k] - nums[j] == diff) {
-                        count++;
+                if (nums[j] - nums[i] == diff) {
+                    for (int k = j + 1; k < l; k++) {
+                        if (nums[k] - nums[j] == diff) {
+                            count++;
+                        }
                     }
                 }
             }
