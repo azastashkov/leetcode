@@ -2,18 +2,16 @@ package easy._2300_2399._2379;
 
 public class Solution {
     public int minimumRecolors(String blocks, int k) {
-        int l = blocks.length(), min = l;
-        for (int i = 0; i <= l - k; i++) {
-            int kMin = 0;
-            for (int j = i; j < i + k; j++) {
-                char c = blocks.charAt(j);
-                if (c == 'W') {
-                    kMin++;
-                }
-            }
-            min = Math.min(min, kMin);
+        int cnt = 0;
+        for (int i = 0; i < k; ++i) {
+            cnt += blocks.charAt(i) == 'W' ? 1 : 0;
         }
-
-        return min;
+        int ans = cnt;
+        for (int i = k; i < blocks.length(); ++i) {
+            cnt += blocks.charAt(i) == 'W' ? 1 : 0;
+            cnt -= blocks.charAt(i - k) == 'W' ? 1 : 0;
+            ans = Math.min(ans, cnt);
+        }
+        return ans;
     }
 }
