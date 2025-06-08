@@ -6,17 +6,17 @@ public class Solution {
     public int[] answerQueries(int[] nums, int[] queries) {
         Arrays.sort(nums);
 
-        int l = nums.length;
-        int k = queries.length;
-        int[] answer = new int[k];
-        for (int i = 0; i < k; i++) {
-            int sum = 0, j = 0;
-            for (; j < l && sum + nums[j] <= queries[i]; j++) {
-                sum += nums[j];
-            }
-            answer[i] = j;
+        for (int i = 1; i < nums.length; ++i) {
+            nums[i] += nums[i - 1];
         }
 
-        return answer;
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int j = Arrays.binarySearch(nums, queries[i] + 1);
+            ans[i] = j < 0 ? -j - 1 : j;
+        }
+
+        return ans;
     }
 }
