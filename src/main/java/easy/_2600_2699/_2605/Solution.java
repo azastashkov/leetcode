@@ -1,24 +1,18 @@
 package easy._2600_2699._2605;
 
-import java.util.Arrays;
-
 public class Solution {
     public int minNumber(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-
-        for (int s : nums1) {
-            if (Arrays.binarySearch(nums2, s) >= 0) {
-                return s;
+        int ans = 100;
+        for (int a : nums1) {
+            for (int b : nums2) {
+                if (a == b) {
+                    ans = Math.min(ans, a);
+                } else {
+                    ans = Math.min(ans, Math.min(a * 10 + b, b * 10 + a));
+                }
             }
         }
 
-        int smallest1 = nums1[0];
-        int smallest2 = nums2[0];
-        if (smallest1 < smallest2) {
-            return Integer.parseInt(smallest1 + "" + smallest2);
-        }
-
-        return Integer.parseInt(smallest2 + "" + smallest1);
+        return ans;
     }
 }
