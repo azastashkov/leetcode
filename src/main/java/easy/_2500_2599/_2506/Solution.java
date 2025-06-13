@@ -1,8 +1,5 @@
 package easy._2500_2599._2506;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Solution {
     public int similarPairs(String[] words) {
         int l = words.length, count = 0;
@@ -18,23 +15,19 @@ public class Solution {
     }
 
     private boolean isSimilar(String s1, String s2) {
-        if (s1 == null) {
-            s1 = "";
-        }
-        if (s2 == null) {
-            s2 = "";
+        int l1 = s1.length(), x1 = bitmask(s1, l1);
+        int l2 = s2.length(), x2 = bitmask(s2, l2);
+
+        return x1 == x2;
+    }
+
+    private int bitmask(String s, int l) {
+        int x = 0;
+        for (int i = 0; i < l; i++) {
+            char c = s.charAt(i);
+            x |= 1 << (c - 'a');
         }
 
-        Set<Character> set1 = new HashSet<>();
-        for (char c : s1.toCharArray()) {
-            set1.add(c);
-        }
-
-        Set<Character> set2 = new HashSet<>();
-        for (char c : s2.toCharArray()) {
-            set2.add(c);
-        }
-
-        return set1.equals(set2);
+        return x;
     }
 }
