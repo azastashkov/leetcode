@@ -1,19 +1,21 @@
 package easy._2600_2699._2696;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Solution {
     public int minLength(String s) {
-        boolean ok;
-        do {
-            ok = false;
-            if (s.contains("AB")) {
-                s = s.replace("AB", "");
-                ok = true;
-            } else if (s.contains("CD")) {
-                s = s.replace("CD", "");
-                ok = true;
+        Deque<Character> stack = new ArrayDeque<>();
+        stack.push(' ');
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            if ((c == 'B' && stack.peek() == 'A') || (c == 'D' && stack.peek() == 'C')) {
+                stack.pop();
+            } else {
+                stack.push(c);
             }
-        } while (ok);
+        }
 
-        return s.length();
+        return stack.size() - 1;
     }
 }
