@@ -11,7 +11,7 @@ public class Solution {
         int total = price1 + price2;
 
         if (money >= total) {
-            return total - money;
+            return money - total;
         }
 
         return money;
