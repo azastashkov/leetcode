@@ -1,22 +1,14 @@
 package easy._2700_2799._2729;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Solution {
     public boolean isFascinating(int n) {
-        int n2 = n * 2;
-        int n3 = n * 3;
-        String s = n + "" + n2 + "" + n3;
-
-        int l = s.length();
-        Set<Character> set = new HashSet<>();
-
-        for (int i = 0; i < l; i++) {
-            char c = s.charAt(i);
-            set.add(c);
+        String s = "" + n + (2 * n) + (3 * n);
+        int[] cnt = new int[10];
+        for (char c : s.toCharArray()) {
+            if (++cnt[c - '0'] > 1) {
+                return false;
+            }
         }
-
-        return set.size() == 9;
+        return cnt[0] == 0 && s.length() == 9;
     }
 }

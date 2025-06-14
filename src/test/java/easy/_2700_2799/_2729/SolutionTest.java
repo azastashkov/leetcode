@@ -13,5 +13,7 @@ public class SolutionTest {
         assertTrue(solution.isFascinating(192));
 
         assertFalse(solution.isFascinating(100));
+
+        assertFalse(solution.isFascinating(267));
     }
 }
