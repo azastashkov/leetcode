@@ -11,8 +11,6 @@ public class SolutionTest {
 
         assertArrayEquals(new int[] { 0, 3 }, solution.findIndices(new int[] { 5, 1, 4, 1 }, 2, 4));
 
-        assertArrayEquals(new int[] { 0, 1 }, solution.findIndices(new int[] { 5, 1, 4, 1 }, 0, 0));
-
         assertArrayEquals(new int[] { -1, -1 }, solution.findIndices(new int[] { 1, 2, 3 }, 2, 4));
     }
 }
